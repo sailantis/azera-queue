@@ -1,0 +1,47 @@
+{
+    "name": "sailantis/azera-queue",
+    "description": "Queue companion for the Azera framework: async backends (database, Redis, AMQP), a long-running worker, failed-job storage, a CLI task, and a job dispatcher.",
+    "type": "library",
+    "repositories": [
+        { "type": "path", "url": "../azera-framework" },
+        { "type": "path", "url": "../clarity-engine" }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "sailantis/azera-framework": "dev-main",
+        "psr/log": "3.0",
+        "psr/event-dispatcher": "1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "suggest": {
+        "ext-redis": "For the RedisQueue backend (\\Azera\\Queue\\Backend\\RedisQueue).",
+        "ext-pdo": "For the DatabaseQueue backend (ships with the framework).",
+        "ext-amqp": "For the AmqpQueue backend.",
+        "php-amqplib/php-amqplib": "Alternative AMQP backend (no ext-amqp required).",
+        "opis/closure": "For serializing closure-based jobs."
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Azera\\Queue\\Backend\\": "src/Backend/",
+            "Azera\\Queue\\Worker\\": "src/Worker/",
+            "Azera\\Queue\\FailedJob\\": "src/FailedJob/",
+            "Azera\\Queue\\Dispatch\\": "src/Dispatch/",
+            "Azera\\Queue\\Serialization\\": "src/Serialization/",
+            "Azera\\Queue\\Event\\": "src/Event/",
+            "Azera\\Queue\\Task\\": "src/Task/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Azera\\Queue\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
