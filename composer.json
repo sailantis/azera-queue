@@ -7,7 +7,7 @@
         { "type": "path", "url": "../clarity-engine" }
     ],
     "require": {
-        "php": ">=8.1",
+      "php": ">=8.2",
         "sailantis/azera-framework": "dev-main",
         "psr/log": "3.0",
         "psr/event-dispatcher": "1.0"
