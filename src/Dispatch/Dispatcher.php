@@ -13,12 +13,12 @@ use Azera\Queue\QueueInterface;
  * Resolves the queue backend and pushes a job with options (queue name,
  * delay, priority) in a single expressive call:
  *
- * <code>
+ * ```php
  * Dispatcher::dispatch(new SendEmailJob('user@example.com'))
  *     ->onQueue('emails')
  *     ->delay(60)
  *     ->priority('high');
- * </code>
+ * ```
 *
  * With {@see \Azera\Queue\SyncQueue} (the default), the job runs inline.
  * With an async backend, it is serialized and a worker picks it up.
@@ -81,8 +81,8 @@ class Dispatcher
     public function send(): mixed
     {
         return $this->queueBackend->push($this->job, [
-            'queue' => $this->queue,
-            'delay' => $this->delay,
+            'queue'    => $this->queue,
+            'delay'    => $this->delay,
             'priority' => $this->priority,
         ]);
     }
